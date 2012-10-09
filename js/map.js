@@ -393,6 +393,15 @@ if(typeof(F1)=='undefined') {F1 = {};}
                     jq('#layercontrol_company').html(title);
                     jq('#layercontrol_extractives').html("Not Shown");
                 }
+                
+                else if (indicator=="Fees"){
+                    self.map.showLayer(self.stylelayers["Licenses"].guid,false);
+                    self.map.showLayer(self.stylelayers["Company"].guid,false);
+ self.map.showLayer(self.stylelayers["EITI"].guid,false);
+                    self.map.showLayer(self.stylelayers["Fees"].guid, true);
+                    jq('#layercontrol_company').html(title);
+                    jq('#layercontrol_extractives').html("Not Shown");
+                }
                 else if (indicator=="Company"){
                     self.map.showLayer(self.stylelayers["Licenses"].guid,false);
                     self.map.showLayer(self.stylelayers["EITI"].guid,false);
@@ -1245,7 +1254,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
     getLayers: function() 
         {
             var self = this;
-            var findlayers = ["Indicators", "Project Locations", "Project Counts", "Population", "Poverty", "Infant Mortality", "Number of Physicians", "Number of Households", "Special Protected Areas","Unemployment", "Soum Boundaries", "Mines", "Licenses","EITI","Company","Oil wells", "Oil fields", "District revenues", "Mineral deposits", "No Data"];
+            var findlayers = ["Indicators", "Fees","Project Locations", "Project Counts", "Population", "Poverty", "Infant Mortality", "Number of Physicians", "Number of Households", "Special Protected Areas","Unemployment", "Soum Boundaries", "Mines", "Licenses","EITI","Company","Oil wells", "Oil fields", "District revenues", "Mineral deposits", "No Data"];
             
             possibleLayers = self.map.getLayers();
             
