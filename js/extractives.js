@@ -1,5 +1,5 @@
  (function(){
-  var iconhost = "http://jimduncan4.github.com/EIMap_rebuild/images/icons/worldbank/";
+  var iconhost = "http://jimduncan4.github.com/mapping-eic/images/icons/worldbank/";
   F1.WorldBank.extractives = {
   
   "Licenses": {
