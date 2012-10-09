@@ -37,7 +37,7 @@ function initializeEvents() {
     jq.each(jq('#mines_sectors li a'), function(index,el) {
        jq(el).tipsy({gravity:  jq.fn.tipsy.autoNS});
        jq(el).click(function() {
-           return wb.toggleExtractive("Mines", jq(this).attr("original-title"))
+           return wb.toggleExtractive("Company","EITI", jq(this).attr("original-title"))
        });
     });
     jq.each(jq('#ore_sectors li a'), function(index,el) {
@@ -46,7 +46,8 @@ function initializeEvents() {
            return wb.toggleExtractive("Mineral deposits", jq(this).attr("original-title"))
        });
     });
-    jq.each(jq('#oil_sectors li a'), function(index,el) {
+    
+     jq.each(jq('#oil_sectors li a'), function(index,el) {
        jq(el).tipsy({gravity:  jq.fn.tipsy.autoNS});
        jq(el).click(function() {
            return wb.toggleExtractive("Oil", jq(this).attr("original-title"))
