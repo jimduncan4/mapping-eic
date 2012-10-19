@@ -24,11 +24,7 @@
    "Location":  {"infoWindowFilter": {"subtitle": "Total EITI 2010 payments: MNT(000) $[totalpay]"},"styles": {"type": "PRIMITIVE","stroke": {"color": 0x222222, "weight": 1, "opacity": 0.75},"fill":{"color":[0xCCCC66],"opacity": 0.75}}},
   },
  
- "Fees": {
-   infoWindowFilter:{"title": "Fees","subtitle":""},
-   "Location":  {"infoWindowFilter": {"subtitle": "Total EITI 2010 payments: MNT(000) $[totalpay]"},"styles": {"type": "GRADUATED","icon": {"opacity": 0.75,"size": 1,"symbol": "propCircle","propSize": null,"classificationType": "Quantile","gradSize": 1,"dropShadow": true,"selectedAttribute": "licfee","categories": 5,"color": 8160950,"classificationNumClasses": 3},"type": "GRADUATED","stroke": {"alpha": 1,"weight": 1,"color": 137011},"fill": {"opacity": 0.75,"color": 8160950}}},
-  },
-  "Special Protected Areas": {
+ "Special Protected Areas": {
    infoWindowFilter:{"title": "$[placenamee] Special Protected Area","subtitle":"", "description":"Special protected area boundaries provided by the Environmental Information Center"},
    "Location":  {"infoWindowFilter": {"styles": {"type": "PRIMITIVE","stroke": {"color": 0x238443, "weight": 1, "opacity": 0.75},"fill":{"color":[0x238443],"opacity": 0.75}}}},
   },
