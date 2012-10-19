@@ -128,6 +128,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
         "Mines": {source: "finder:", title:"Mines", selectedAttribute: "mines", styles: {}},
         "Licenses":{source: "finder:", title:"Licenses", selectedAttribute:"licenses",styles: {}},
         "EITI":{source: "finder:", title:"EITI", selectedAttribute:"eiti",styles: {}},
+        "Donations":{source: "finder:", title:"Donations", selectedAttribute:"eiti",styles: {}},
         "Company":{source: "finder:", title:"Company", selectedAttribute:"company",styles: {}},
         "Oil wells": {source: "finder:", title:"Oil wells", selectedAttribute: "oil", styles: {}},
         "District revenues": {source: "finder:", title:"District revenues", selectedAttribute: "TOTAL_REC", styles: {}}	
@@ -381,6 +382,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
                     self.map.addFilter(self.stylelayers[indicator].guid, {expression : s_attr["expression"]});
                     self.map.showLayer(self.stylelayers["EITI"].guid,false);
                     self.map.showLayer(self.stylelayers["Company"].guid,false);
+                    self.map.showLayer(self.stylelayers["Donations"].guid,false);
                     self.map.showLayer(self.stylelayers["Licenses"].guid, true);
                     jq('#layercontrol_company').html("Not Shown");
                     jq('#layercontrol_extractives').html(title);
@@ -388,17 +390,18 @@ if(typeof(F1)=='undefined') {F1 = {};}
                 else if (indicator=="EITI"){
                     self.map.showLayer(self.stylelayers["Licenses"].guid,false);
                     self.map.showLayer(self.stylelayers["Company"].guid,false);
+                    self.map.showLayer(self.stylelayers["Donations"].guid,false);
                     self.map.showLayer(self.stylelayers["EITI"].guid, true);
                     self.showVisibleMines(indicator,"Company");
                     jq('#layercontrol_company').html(title);
                     jq('#layercontrol_extractives').html("Not Shown");
                 }
                 
-                else if (indicator=="Fees"){
+                else if (indicator=="Donations"){
                     self.map.showLayer(self.stylelayers["Licenses"].guid,false);
                     self.map.showLayer(self.stylelayers["Company"].guid,false);
- self.map.showLayer(self.stylelayers["EITI"].guid,false);
-                    self.map.showLayer(self.stylelayers["Fees"].guid, true);
+                    self.map.showLayer(self.stylelayers["EITI"].guid,false);
+                    self.map.showLayer(self.stylelayers["Donations"].guid, true);
                     jq('#layercontrol_company').html(title);
                     jq('#layercontrol_extractives').html("Not Shown");
                 }
@@ -1254,7 +1257,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
     getLayers: function() 
         {
             var self = this;
-            var findlayers = ["Indicators", "Fees","Project Locations", "Project Counts", "Population", "Poverty", "Infant Mortality", "Number of Physicians", "Number of Households", "Special Protected Areas","Unemployment", "Soum Boundaries", "Mines", "Licenses","EITI","Company","Oil wells", "Oil fields", "District revenues", "Mineral deposits", "No Data"];
+            var findlayers = ["Indicators", "Fees","Project Locations", "Project Counts", "Population", "Poverty", "Infant Mortality", "Number of Physicians", "Number of Households", "Special Protected Areas","Unemployment", "Soum Boundaries", "Mines", "Licenses","EITI","Donations","Company","Oil wells", "Oil fields", "District revenues", "Mineral deposits", "No Data"];
             
             possibleLayers = self.map.getLayers();
             
@@ -1282,6 +1285,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
             var downloads = {//"Project Locations": "csv",
                 "Licenses": "csv",
                 "EITI": "csv",
+                "Donations" : "csv",
                 "Company": "shapefile",
                 "Indicators": "shapefile",
                 "Soum Boundaries": "shapefile",
