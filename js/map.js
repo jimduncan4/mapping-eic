@@ -505,7 +505,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
             if(visibleMines.length != 0 ){
 //                self.map.showLayer(self.stylelayers[layer].guid, true);
                 
-                self.map.addHighlight(self.stylelayers[layer].guid,
+                self.map.addFilter(self.stylelayers[layer].guid,
                                    {expression: self.complexFilterExpression(visibleMines,"Yes")});
                 self.map.addFilter(self.stylelayers[offlayer].guid,
                                    {expression: self.complexFilterExpression(visibleMines,"Yes")});
