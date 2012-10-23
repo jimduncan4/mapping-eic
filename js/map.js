@@ -799,7 +799,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
     highlightCompany: function(attribute, company)
         {
             var self = this;
-            var highlightExpression = "$[" + attribute + "] == '"+company+"'";
+            var highlightExpression = "$[" + attribute + "] == "+company;
             this.map.clearHighlights(self.stylelayers["Company"].guid);
             this.map.addHighlight(self.stylelayers["Company"].guid,{expression: highlightExpression});
         },
