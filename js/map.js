@@ -795,8 +795,16 @@ if(typeof(F1)=='undefined') {F1 = {};}
             this.map.clearHighlights(self.stylelayers["Mines"].guid);
             this.map.addHighlight(self.stylelayers["Mines"].guid,{expression: highlightExpression});
         },
-        
-    highlightProject: function(project_id, project_name) 
+ 
+    highlightCompany: function(attribute, company)
+        {
+            var self = this;
+            var highlightExpression = "$[" + attribute + "] == '"+company+"'";
+            this.map.clearHighlights(self.stylelayers["Company"].guid);
+            this.map.addHighlight(self.stylelayers["Company"].guid,{expression: highlightExpression});
+        },
+ 
+    highlightProject: function(project_id, project_name)
         {
             var self = this;
             if(project_name !== undefined && project_name !== null)
@@ -1113,7 +1121,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
             jq("#map-table").append(table);
             
             jq("#project-info tr").live("click", function() {
-                                        self.highlightMine("Company name", jq(this).attr("data-project-id"));
+                                        self.highlightCompany("company", jq(this).attr("data-project-id"));
                                         });
             jq("#map-table").append("<h1><span>TABLE COMING SOON</span></h1>")
         },
