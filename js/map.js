@@ -1064,8 +1064,9 @@ if(typeof(F1)=='undefined') {F1 = {};}
             jq("#left-chart-title").html("CHARTS COMING SOON")
             var opts = {};
             var labels = ["Gold","Manganese","Bauxite"];
+            var site='<a href="http://www.google.com" target="_new"><Here></a>'
             var mines = [
-                         {"id": 1, "company": "Dun erdene LLC","registration_number": "2010933", "invest_agree":'<a href="http://www.google.com" target="_new"><Hello>', "soumnamemo": "Баяндун", "aimagnamemo": "Дорнод", "centralpay": "133558.8", "localpay": "11030", "totalpay": "144588.8"}
+                         {"id": 1, "company": "Dun erdene LLC","registration_number": "2010933", "invest_agree":site, "soumnamemo": "Баяндун", "aimagnamemo": "Дорнод", "centralpay": "133558.8", "localpay": "11030", "totalpay": "144588.8"}
                          ]
             mineral_type = {}
             total = 0;
