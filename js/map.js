@@ -1121,7 +1121,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
             jq("#map-table").append(table);
             
             jq("#project-info tr").live("click", function() {
-                                        self.highlightCompany("comp_num", jq(this).attr("data-project-id"));
+                                        self.highlightCompany("company_name", jq(this).attr("data-project-id"));
                                         });
             jq("#map-table").append("<h1><span>TABLE COMING SOON</span></h1>")
         },
