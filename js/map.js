@@ -1469,7 +1469,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
                 //self.setExtractiveIndicator('Oil wells','Lift total','Production',true)
                 //self.map.addLayerCategoryFilter(self.stylelayers["Mines"].guid,F1.WorldBank.extractives["Mines"]["Location"])
                 //self.map.addLayerCategoryFilter(self.stylelayers["Mineral deposits"].guid,F1.WorldBank.extractives["Mineral deposits"]["Deposits"])
-                //self.map.setLayerStyle(self.stylelayers["Oil wells"].guid,F1.WorldBank.extractives["Oil wells"]["Location"])
+                self.map.setLayerStyle(self.stylelayers["Special Protected Areas"].guid,F1.WorldBank.extractives["Special Protected Areas"]["Location"])
                 //self.map.setLayerStyle(self.stylelayers["Mineral deposits"].guid, F1.WorldBank.extractives["Mineral deposits"]["Deposits"])
                 self.minesPieChart()
             }
