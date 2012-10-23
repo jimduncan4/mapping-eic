@@ -408,6 +408,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
                 else if (indicator=="Company"){
                     self.map.showLayer(self.stylelayers["Licenses"].guid,false);
                     self.map.showLayer(self.stylelayers["EITI"].guid,false);
+                    self.map.showLayer(self.stylelayers["Donations"].guid,false);
                     self.map.showLayer(self.stylelayers["Company"].guid, true);
                     self.showVisibleMines(indicator,"EITI");
                     jq('#layercontrol_company').html(title);
@@ -1064,29 +1065,17 @@ if(typeof(F1)=='undefined') {F1 = {};}
             var opts = {};
             var labels = ["Gold","Manganese","Bauxite"];
             var mines = [
-                         {"id": 1, "mineral_type": "Gold", "Total_company_payments": 14169108,"CompanyURL": "","CSR_url": "", "Total_government_receipts": "13805875", "Total_difference": "363233", "Sustainability_reports_available": "No", "Company_name": "AngloGold Ashanti - Bibiani"},
-                         {"id": 2, "mineral_type": "Bauxite", "Total_company_payments": 2368407,"CompanyURL": "","CSR_url": "", "Total_government_receipts": "2366252", "Total_difference": "2155", "Sustainability_reports_available": "No", "Company_name": "Ghana Bauxite Company"},
-                         {"id": 3, "mineral_type": "Gold", "Total_company_payments": 32305692,"CompanyURL": "http://www.goldfields.co.za/ops_int_damang.php","CSR_url": "http://www.goldfields.co.za/sus_reports.php", "Total_government_receipts": "32581943", "Total_difference": "-276251", "Sustainability_reports_available": "Yes", "Company_name": "Goldfields - Damang"},
-                         {"id": 4, "mineral_type": "Gold", "Total_company_payments": 122052830,"CompanyURL": "http://www.goldfields.co.za/ops_int_tarkwa.php","CSR_url": "http://www.goldfields.co.za/sus_reports.php", "Total_government_receipts": "121557596", "Total_difference": "495234", "Sustainability_reports_available": "Yes", "Company_name": "Goldfields - Tarkwa"},
-                         {"id": 5, "mineral_type": "Manganese", "Total_company_payments": 9043739,"CompanyURL": "http://www.ghamang.net/index.html","CSR_url": "http://www.ghamang.net/peo.html", "Total_government_receipts": "9042513", "Total_difference": "1226", "Sustainability_reports_available": "Yes", "Company_name": "Ghana Manganse Company"},
-                         {"id": 6, "mineral_type": "Gold", "Total_company_payments": 11667129,"CompanyURL": "http://www.gsr.com/Operations/Bogoso.asp","CSR_url": "http://www.gsr.com/Social_Responsibility/index.asp", "Total_government_receipts": "11665765", "Total_difference": "1364", "Sustainability_reports_available": "Yes", "Company_name": "Golden Star Resources - Prestea/Bogosu"},
-                         {"id": 7, "mineral_type": "Gold", "Total_company_payments": 7461289,"CompanyURL": "http://www.gsr.com/Operations/Wassa.asp","CSR_url": "http://www.gsr.com/Social_Responsibility/index.asphttp://www.gsr.com/Social_Responsibility/index.asp", "Total_government_receipts": "7550526", "Total_difference": "-89237", "Sustainability_reports_available": "Yes", "Company_name": "Golden Star Resources - Wassa"},
-                         {"id": 8, "mineral_type": "Gold", "Total_company_payments": 22786778,"CompanyURL": "http://www.newmont.com/africa","CSR_url": "http://beyondthemine.com/2010/", "Total_government_receipts": "22786774", "Total_difference": "-4", "Sustainability_reports_available": "Yes", "Company_name": "Newmont Mining Corporation"},
-                         {"id": 9, "mineral_type": "Gold", "Total_company_payments": 0,"CompanyURL": "http://www.gnpcghana.com/subsidiaries/mining.asp","CSR_url": "", "Total_government_receipts": "", "Total_difference": "", "Sustainability_reports_available": "No", "Company_name": "Prestea Sankofa Gold"},
-                         {"id": 10, "mineral_type": "Gold", "Total_company_payments": 18993757,"CompanyURL": "http://www.anglogold.com/default.htm","CSR_url": "http://www.anglogold.com/subwebs/InformationForInvestors/Reports10/Sustainability/default.htm", "Total_government_receipts": "18019542", "Total_difference": "974215", "Sustainability_reports_available": "Yes", "Company_name": "AngloGold Ashanti - Iduaprim"},
-                         {"id": 11, "mineral_type": "Gold", "Total_company_payments": 31782907,"CompanyURL": "http://www.anglogold.com/default.htm","CSR_url": "http://www.anglogold.com/subwebs/InformationForInvestors/Reports10/Sustainability/default.htm", "Total_government_receipts": "30819631", "Total_difference": "963276", "Sustainability_reports_available": "Yes", "Company_name": "AngloGold Ashanti - Obuasi"},
-                         {"id": 12, "mineral_type": "Gold", "Total_company_payments": 6149323,"CompanyURL": "http://www.centralafricangold.com/","CSR_url": "", "Total_government_receipts": "5742802", "Total_difference": "406521", "Sustainability_reports_available": "No", "Company_name": "Central African Gold"},
-                         {"id": 13, "mineral_type": "Gold", "Total_company_payments": 6685562,"CompanyURL": "http://www.kinross.com/operations/operation-chirano-ghana.aspx","CSR_url": "http://www.kinross.com/corporate-responsibility/corporate-responsibility-reports.aspx", "Total_government_receipts": "6656562", "Total_difference": "29000", "Sustainability_reports_available": "Yes", "Company_name": "Kinross - Chirano"}
+                         {"id": 1, "company": "Dun erdene LLC","registration_number": "2010933", "invest_agree":"Not available","invest_agree_url" : "", "soumnamemo": "Баяндун", "aimagnamemo": "Дорнод", "centralpay": "133558.8", "localpay": "11030", "totalpay": "144588.8"}
                          ]
             mineral_type = {}
             total = 0;
-            jq.each(mines, function(i,mine) {
-                    if(mineral_type[mine["mineral_type"]] === undefined || mineral_type[mine["mineral_type"]] === null) {
-                    mineral_type[mine["mineral_type"]] = 0;
-                    }
-                    mineral_type[mine["mineral_type"]] += mine["Total_company_payments"]
-                    total += mine["Total_company_payments"];
-                    })
+//            jq.each(mines, function(i,mine) {
+//                    if(mineral_type[mine["mineral_type"]] === undefined || mineral_type[mine["mineral_type"]] === null) {
+//                    mineral_type[mine["mineral_type"]] = 0;
+//                    }
+//                    mineral_type[mine["mineral_type"]] += mine["Total_company_payments"]
+//                    total += mine["Total_company_payments"];
+//                    })
             minerals = []
             var links = []
             jq.each(mineral_type, function(type,amount) {
@@ -1110,7 +1099,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
             var self = this;
             
             var table = '<table id="project-info"><thead><tr>';
-            jq.each(["Company Name", "Resource Type","Company Payments (2004 to 2008)", "Government Receipts (2004 to 2008)", "Total Difference (Payments - Receipts)", "Sustainability Reports Available?"], function(index,header) {
+            jq.each(["Company name", "Registration number","Soum name","Aimag name", "Investment agreement", "2010 National payments", " 2010 Local payments", "2010 Total payments"], function(index,header) {
                     table += tmpl(table_templates.th, {id: index,header: header});
                     });
             table += "</tr></thead><tbody>"
@@ -1121,7 +1110,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
                     table += tmpl(table_templates.mine, mine);
                     });
             table += "</tbody></table>"
-//TEMPORARY            jq("#map-table").append(table);
+TEMPORARY            jq("#map-table").append(table);
             
             jq("#project-info tr").live("click", function() {
                                         self.highlightMine("Company name", jq(this).attr("data-project-id"));
