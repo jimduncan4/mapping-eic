@@ -800,9 +800,9 @@ if(typeof(F1)=='undefined') {F1 = {};}
         {
             var self = this;
             var highlightExpression = "$[" + attribute + "] == "+company;
-            this.map.clearHighlights(self.stylelayers["Company"].guid);
+            self.map.clearHighlights(self.stylelayers["Company"].guid);
 //            this.map.addHighlight(self.stylelayers["Company"].guid,{expression: highlightExpression});
- this.map.addHighlight(self.stylelayers["Company"].guid, {expression: "$[gold]=='Yes'"});
+ self.map.addHighlight(self.stylelayers["Company"].guid, {expression: "$[gold]=='Yes'"});
         },
  
     highlightProject: function(project_id, project_name)
