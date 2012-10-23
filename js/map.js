@@ -802,7 +802,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
             var highlightExpression = "$[" + attribute + "] == "+company;
             this.map.clearHighlights(self.stylelayers["Company"].guid);
 //            this.map.addHighlight(self.stylelayers["Company"].guid,{expression: highlightExpression});
-            this.map.addHighlight(self.stylelayers["Company"].guid,"$[comp_num]>30");
+            this.map.addHighlight(self.stylelayers["Company"].guid,"$[company_name]=='Petro Matad LLC'");
         },
  
     highlightProject: function(project_id, project_name)
