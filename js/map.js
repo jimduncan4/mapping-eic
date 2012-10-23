@@ -1110,7 +1110,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
                     table += tmpl(table_templates.mine, mine);
                     });
             table += "</tbody></table>"
-TEMPORARY            jq("#map-table").append(table);
+            jq("#map-table").append(table);
             
             jq("#project-info tr").live("click", function() {
                                         self.highlightMine("Company name", jq(this).attr("data-project-id"));
