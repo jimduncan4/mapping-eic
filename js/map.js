@@ -124,6 +124,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
         "Number of Households": {source: "finder:", title:"Number of Households", subtitle: "", styles: { type: "CHOROPLETH", stroke: {color: 0x222222}, fill: { colors: [5313667, 8608676, 12619965, 14924738, 16573399], categories: 5, classificationNumClasses: 5, classificationType: "QUANTILE", opacity: 0.75, selectedAttribute: "housenum"}}, infosubtitle: "The number of households in each aimag", table: null, description: "The number of households in each aimag in 2010. \nSource: <a href='http://www.nso.mn/v3/index2.php?page=free_access' target='_new'>National Statistical Office of Mongolia</a>."},	
         "Soum Boundaries":{source: "finder:", title:"$[soumnameen] Soum, $[aimagnameen] Aimag", selectedAttribute:"soumnameen",subtitle: "",styles: {type: "PRIMITIVE",stroke: {color: 0x222222, weight: 1, opacity: 0.75},fill:{color:[0xCCCC66],opacity: 0.75}},infosubtitle: "$[soumnameen] Soum", table: null, description: "Soum boundaries provided by the <a href='http://www.icc.mn/' target='_new'>Environmental Information Center</a>."},
         "Special Protected Areas":{source: "finder",title:"Special Protected Areas", selectedAttribute:"placenamee",subtitle:"",styles:{}},
+        "Forest": {source: "finder", title: "Forested areas", selectedAttribute:"", subtitle:"",styles:{}},
         "Mineral deposits": {source: "finder:", title:"Mineral deposits", selectedAttribute: "mineral", styles: {}},
         "Mines": {source: "finder:", title:"Mines", selectedAttribute: "mines", styles: {}},
         "Licenses":{source: "finder:", title:"Licenses", selectedAttribute:"licenses",styles: {}},
@@ -373,6 +374,16 @@ if(typeof(F1)=='undefined') {F1 = {};}
                 }
             }
             
+            if(indicator == "Forest") {
+                var layervisible=self.map.getLayers();
+                if(layervisible[self.stylelayers[indicator].order].visible){
+                    self.map.showLayer(self.stylelayers[indicator].guid, false);
+                }
+                else {
+                    self.map.showLayer(self.stylelayers[indicator].guid, true);
+                }
+            }
+
             else {
                 //District revenues check and Mines check disables
                 //self.map.showLayer(self.stylelayers["District revenues"].guid, false);
@@ -1255,7 +1266,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
     getLayers: function() 
         {
             var self = this;
-            var findlayers = ["Indicators", "Fees","Project Locations", "Project Counts", "Population", "Poverty", "Infant Mortality", "Number of Physicians", "Number of Households", "Special Protected Areas","Unemployment", "Soum Boundaries", "Mines", "Licenses","EITI","Donations","Company","Oil wells", "Oil fields", "District revenues", "Mineral deposits", "No Data"];
+            var findlayers = ["Indicators", "Fees","Project Locations", "Project Counts", "Population", "Poverty", "Infant Mortality", "Number of Physicians", "Number of Households", "Special Protected Areas","Forest", "Unemployment", "Soum Boundaries", "Mines", "Licenses","EITI","Donations","Company","Oil wells", "Oil fields", "District revenues", "Mineral deposits", "No Data"];
             
             possibleLayers = self.map.getLayers();
             
