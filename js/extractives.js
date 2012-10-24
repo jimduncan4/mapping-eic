@@ -35,6 +35,12 @@
    infoWindowFilter:{"title": "$[placenamee] Special Protected Area","subtitle":"","tabs": [{"title": "<b>Data</b>","type": "text","value": "Special protected area boundaries provided by the Environmental Information Center. See the About page for more information"}]},
    "Location":  {"type": "PRIMITIVE","stroke": {"color": [0x238443], "weight": 1, "opacity": 0.75},"fill":{"color":[0x238443],"opacity": 0.75}},
   },
-  "Aimag indicators": {}
+
+"Forest": {
+   infoWindowFilter:{"title": "Forested Area","subtitle":"","tabs": [{"title": "<b>About</b>","type": "text","value": "Coverage of forest area in Mongolia. Data provided by the Environmental Information Center."}]},
+   "Location":  {"type": "PRIMITIVE","stroke": {"color": [0x238443], "weight": 1, "opacity": 0.75},"fill":{"color":[0x238443],"opacity": 0.75}},
+  },
+
+"Aimag indicators": {}
   };
   })();
