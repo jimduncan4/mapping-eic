@@ -116,7 +116,6 @@ if(typeof(F1)=='undefined') {F1 = {};}
     };
  
     F1.WorldBank.indicators = {
-        "Poverty": {source: "finder:", title:"Poverty", subtitle: "Headcount Index", styles: { type: "CHOROPLETH",fill: { colors: [16709541,16698989,15500308,11422722,6694150], categories: 5, classificationNumClasses: 6, classificationType: "St Dev", opacity: 0.75, selectedAttribute: "poverty" }}, infosubtitle: null, table: null, description: "The headcount index is a measure of the percent of the population living below the poverty line. Poverty data was obtained from World Bank Poverty Assessments, CIESIN Small Area Estimates, and national statistics bureaus. See the data source page for information regarding the source of poverty data for each country"},
         "Infant Mortality": {source: "finder:", title:"Infant Mortality Rate", subtitle: "Per 1,000 live births", styles: { type: "CHOROPLETH", stroke: {color: 0x222222}, fill: { colors: [0xFEE5D9, 0xFCAE91, 0xFB6A4A, 0xDE2D26, 0xA50F15], categories: 5, classificationNumClasses: 5, classificationType: "QUANTILE", opacity: 0.75, selectedAttribute: "infantmort"}}, infosubtitle: null, table: null, description: "Infant deaths per 1,000 live births in the 2nd quarter of 2012. Infant mortality rate is the number of infant deaths (deaths before reaching one year of age) per 1,000 for the ten year period preceding the survey.\nSource: <a href='http://www.nso.mn/v3/index2.php?page=free_access' target='_new'>National Statistical Office of Mongolia</a>."},    
         "Population": {source: "finder:", title:"Population", subtitle: "Number of People", styles: { type: "CHOROPLETH",stroke: {color: 0x222222}, fill: { colors: [0xEFF3FF, 0xBDD7E7, 0x6BAED6, 0x3182BD, 0x08519C], categories: 5, classificationNumClasses: 5, classificationType: "QUANTILE", opacity: 0.75, selectedAttribute: "population"}}, infosubtitle: "The number of people in each aimag", table: null, description: "The number of people in each aimag in 2010.\nSource: <a href='http://www.nso.mn/v3/index2.php?page=free_access' target='_new'>National Statistical Office of Mongolia</a>."},
         "Unemployment": {source: "finder:", title:"Unemployment", subtitle: "", styles: { type: "CHOROPLETH", stroke: {color: 0x222222}, fill: { colors: [0xFEE5D9, 0xFCAE91, 0xFB6A4A, 0xDE2D26, 0xA50F15], categories: 5, classificationNumClasses: 5, classificationType: "QUANTILE", opacity: 0.75, selectedAttribute: "unemployment"}}, infosubtitle: "The number of people in each aimag not employed in the first half of 2012", table: null, description: "The number of people in each aimag not employed in the first half of 2012. Source: <a href='http://www.nso.mn/v3/index2.php?page=free_access' target='_new'>National Statistical Office of Mongolia</a>."},    
@@ -125,14 +124,10 @@ if(typeof(F1)=='undefined') {F1 = {};}
         "Soum Boundaries":{source: "finder:", title:"$[soumnameen] Soum, $[aimagnameen] Aimag", selectedAttribute:"soumnameen",subtitle: "",styles: {type: "PRIMITIVE",stroke: {color: 0x222222, weight: 1, opacity: 0.75},fill:{color:[0xCCCC66],opacity: 0.75}},infosubtitle: "$[soumnameen] Soum", table: null, description: "Soum boundaries provided by the <a href='http://www.icc.mn/' target='_new'>Environmental Information Center</a>."},
         "Special Protected Areas":{source: "finder",title:"Special Protected Areas", selectedAttribute:"placenamee",subtitle:"",styles:{}},
         "Forest": {source: "finder", title: "Forested areas", selectedAttribute:"", subtitle:"",styles:{}},
-        "Mineral deposits": {source: "finder:", title:"Mineral deposits", selectedAttribute: "mineral", styles: {}},
-        "Mines": {source: "finder:", title:"Mines", selectedAttribute: "mines", styles: {}},
         "Licenses":{source: "finder:", title:"Licenses", selectedAttribute:"licenses",styles: {}},
         "EITI":{source: "finder:", title:"EITI", selectedAttribute:"eiti",styles: {}},
         "Donations":{source: "finder:", title:"Donations", selectedAttribute:"eiti",styles: {}},
         "Company":{source: "finder:", title:"Company", selectedAttribute:"company",styles: {}},
-        "Oil wells": {source: "finder:", title:"Oil wells", selectedAttribute: "oil", styles: {}},
-        "District revenues": {source: "finder:", title:"District revenues", selectedAttribute: "TOTAL_REC", styles: {}}	
     };
  
     F1.WorldBank.prototype = {
@@ -713,7 +708,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
             
             for(var sector=0;sector<sectorFilters.length; sector++) {
 //                expression += "$["+sector_attribute+"] == '" + sectorFilters[sector] + "'"; GHANA VERSION
-                expression += "$["+sectorFilters[sector]+"] == '" + sector_attribute+"'";
+                expression += "$["+sectorFilters[sector]+"] == '" + sector_attribute+"'"; //MONGOLIA VERSION
                 if(sector != sectorFilters.length-1)
                     expression += " OR ";
             }
@@ -1266,7 +1261,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
     getLayers: function() 
         {
             var self = this;
-            var findlayers = ["Indicators", "Fees","Project Locations", "Project Counts", "Population", "Poverty", "Infant Mortality", "Number of Physicians", "Number of Households", "Special Protected Areas","Forest", "Unemployment", "Soum Boundaries", "Mines", "Licenses","EITI","Donations","Company","Oil wells", "Oil fields", "District revenues", "Mineral deposits", "No Data"];
+            var findlayers = ["Indicators","Population","Infant Mortality", "Number of Physicians", "Number of Households", "Special Protected Areas","Forest", "Unemployment", "Soum Boundaries", "Licenses","EITI","Donations","Company","Company Info","No Data"];
             
             possibleLayers = self.map.getLayers();
             
@@ -1275,7 +1270,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
                     index = Object.include(findlayers, possibleLayers[layer].title);
                     if(index !== undefined && index !== null){
                     self.stylelayers[findlayers[index]] = {guid: possibleLayers[layer].guid, order: possibleLayers[layer].order, source: possibleLayers[layer].source, sharedLayer: false};
-                    if(Object.include(["Infant Mortality", "Population", "Poverty", "Number of Physicians", "Number of Households", "Unemployment"], possibleLayers[layer].title)) {
+                    if(Object.include(["Infant Mortality", "Population", "Number of Physicians", "Number of Households", "Unemployment"], possibleLayers[layer].title)) {
                     F1.WorldBank.indicators[possibleLayers[layer].title].styles.fill.selectedAttribute = possibleLayers[layer].styles.fill.selectedAttribute;
                     }
                     findlayers.splice(index,1);
@@ -1295,7 +1290,9 @@ if(typeof(F1)=='undefined') {F1 = {};}
                 "Licenses": "csv",
                 "EITI": "csv",
                 "Donations" : "csv",
+                "Company": "csv",
                 "Company": "shapefile",
+                "Indicators": "csv",
                 "Indicators": "shapefile",
                 "Soum Boundaries": "shapefile",
                 "Special Protected Areas":"shapefile"
@@ -1311,14 +1308,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
                     jq("#data_links").append("<li><a href='http://geocommons.com/overlays/" + self.stylelayers[index].source.replace('finder:','') +"."+format+"'>"+index+" ("+download+")</a></li>");
                     
                     })
-            // if(self.stylelayers["Project Counts"] !== undefined)
-            // jq("#data_links").append("<li><a href='http://maps.worldbank.org/datasets/" + self.stylelayers['Project Counts'].source.replace('finder:','') +".csv'>Project Counts (csv)</a></li>");
-            // if(self.stylelayers["Indicators"] !== undefined)
-            // jq("#data_links").append("<li><a href='http://maps.worldbank.org/datasets/" + self.stylelayers['Indicators'].source.replace('finder:','') +".zip'>Indicators (shapefile)</a></li>");
-            // if(self.stylelayers["Population"] !== undefined)
-            // jq("#data_links").append("<li><a href='http://maps.worldbank.org/datasets/" + self.stylelayers['Population'].source.replace('finder:','') +".csv'>Population (csv)</a></li>");
-            //
-            
+        
             return false;
         },
         
