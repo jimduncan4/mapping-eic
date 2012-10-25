@@ -122,6 +122,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
             var self = this;
             this.activities = {};
             this.projects = country_attrs.projects;
+            this.companies=country_attrs.companies;
             this.visibleSectors = [];
             this.map_id = map_id;
             if(embed !== undefined && embed !== null)
