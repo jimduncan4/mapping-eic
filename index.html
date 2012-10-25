@@ -202,21 +202,20 @@ MOVING WB LOGO -->
                         </style>
                         <ul id="extractives_menu" class="map-options dropmenu">
                             <li class="sectors"><span>MINING LICENSES: </span></li>
-                            <li><a href="#" id="layercontrol_extractives" class="arwOrange" >Production, Percent of Soum</a>
+                            <li><a href="#" id="layercontrol_extractives" class="arwOrange" >May 2012 License Data</a>
                                 <ul class="dropmenu_options">
                                     <li class="dropmenu_category">Production Licenses</li>
-                                    <li><a href="#" onclick="wb.setExtractiveIndicator('Licenses','Production percent','Production, % of Soum',true); return false">% of Soum</a></li>
-                                    <li><a href="#" onclick="wb.setExtractiveIndicator('Licenses','Production count','Production, # in Soum',true); return false"># in Soum</a></li>
+                                    <li><a href="#" onclick="wb.setExtractiveIndicator('Licenses','Production percent','Percent of Soum Area Under Production License',true); return false">% of Soum Area</a></li>
+                                    <li><a href="#" onclick="wb.setExtractiveIndicator('Licenses','Production count','Number of Production Licenses Within Soum',true); return false"># Within Soum</a></li>
                                                             
                                     <li class="dropmenu_category">Exploration Licenses</li>
-				    <li><a href="#" onclick="wb.setExtractiveIndicator('Licenses','Exploration percent','Exploration, % of Soum',true); return false">% of Soum</a></li>
-                                    <li><a href="#" onclick="wb.setExtractiveIndicator('Licenses','Exploration count','Exploration, # in Soum',true); return false"># in Soum</a></li>
+				    <li><a href="#" onclick="wb.setExtractiveIndicator('Licenses','Exploration percent','Percent of Soum Area Under Exploration License',true); return false">% of Soum Area</a></li>
+                                    <li><a href="#" onclick="wb.setExtractiveIndicator('Licenses','Exploration count','Number of Exploration Licenses Within Soum',true); return false"># Within Soum</a></li>
                           
                                     <li class="dropmenu_category">All Licenses</li>
-                                    <li><a href="#" onclick="wb.setExtractiveIndicator('Licenses','All percent','All, % of Soum',true); return false">% of Soum</a></li>
-                                    <li><a href="#" onclick="wb.setExtractiveIndicator('Licenses','All count','All, # in Soum',true); return false"># in Soum</a></li>
- 
-                                </ul>
+                                    <li><a href="#" onclick="wb.setExtractiveIndicator('Licenses','All percent','Percent of Soum Area Under Any License',true); return false">% of Soum Area</a></li>
+                                    <li><a href="#" onclick="wb.setExtractiveIndicator('Licenses','All count','Total Number of Licenses Within Soum',true); return false"># Within Soum</a></li>
+                                 </ul>
                             </li>
                         </ul>
 			<ul id="extractives_company_menu" class="map-options dropmenu">
@@ -225,18 +224,18 @@ MOVING WB LOGO -->
                             		.all {display:none}
                         	</style>	
                             	<li class="sectors"><span>COMPANIES/REVENUES: </span></li>
-                            	<li><a href="#" id="layercontrol_company" class="arwOrange" >EITI 2010 Data</a>
+                            	<li><a href="#" id="layercontrol_company" class="arwOrange" >EITI Report Data (2010)</a>
                                 	<ul class="dropmenu_options">
                                 		<li class="dropmenu_category">Payments by Soum</li>
-                                		<li><a href="#" onclick="wb.setExtractiveIndicator('EITI','National payments','Payments to Central Budget',true); return false">National Payments</a></li>
-                                		<li><a href="#" onclick="wb.setExtractiveIndicator('EITI','Local payments','Payments to Local Budget',true); return false">Local Payments</a></li>
-                                    		<li><a href="#" onclick="wb.setExtractiveIndicator('EITI','Total payments','Total Payments to Budget',true); return false">Total Payments</a></li>
+                                		<li><a href="#" onclick="wb.setExtractiveIndicator('EITI','National payments','Payments to the National Budget',true); return false">National Payments (2010)</a></li>
+                                		<li><a href="#" onclick="wb.setExtractiveIndicator('EITI','Local payments','Payments to Local Budgets',true); return false">Local Payments (2010)</a></li>
+                                    		<li><a href="#" onclick="wb.setExtractiveIndicator('EITI','Total payments','Payments to All Budgets',true); return false">Total Payments (2010)</a></li>
 						<li class="dropmenu_category">Donations to soums</li>
-                                		<li><a href="#" onclick="wb.setExtractiveIndicator('Donations','Total donations','Total Donations in Soum',true); return false">Total Donations</a></li>
-                                		<li><a href="#" onclick="wb.setExtractiveIndicator('Donations','Environmental contributions','Total Payments into Environmental Fund',true); return false">Environment Fund</a></li>
-						<li><a href="#" onclick="wb.setExtractiveIndicator('Donations','Transaction count','Number of Payments Made to Soum',true); return false">Number of Transactions</a></li>
-                                    		<li class="dropmenu_category">Company Operations</li>
-                                    		<li><a href="#" onclick="wb.setExtractiveIndicator('Company','Location','Soums of Operation',true); return false">Location</a></li>
+                                		<li><a href="#" onclick="wb.setExtractiveIndicator('Donations','Total donations','Total Donations Made in Each Soum',true); return false">Total Donations (2010)</a></li>
+                                		<li><a href="#" onclick="wb.setExtractiveIndicator('Donations','Environmental contributions','Total Payments into Soum Environmental Funds',true); return false">Environment Fund (2010)</a></li>
+						<li><a href="#" onclick="wb.setExtractiveIndicator('Donations','Transaction count','Number of Payments Made to Soum',true); return false">Number of Transactions (2010)</a></li>
+                                    		<li class="dropmenu_category">Company Operations (2010)</li>
+                                    		<li><a href="#" onclick="wb.setExtractiveIndicator('Company','Location','Soums of Company Operations',true); return false">Location</a></li>
                                     	</ul>
                             	</li>
                        	</ul>
@@ -267,7 +266,7 @@ MOVING WB LOGO -->
             </div>
     
             <div id="rightInfo" class="clearfix">
-                <h3 class="clearfix" id="left-chart-title"><span class="rightHdr">GOVERNMENT REVENUES BY TYPE</span> <a class="arwOrange" style="display:none" href="javascript: return false;">BY SECTOR</a></h3>
+                <h3 class="clearfix" id="left-chart-title"><span class="rightHdr">GOVERNMENT REVENUES BY TYPE (2010)</span> <a class="arwOrange" style="display:none" href="javascript: return false;">BY SECTOR</a></h3>
                 <span id="chart-left-stat">                
                     <h4 id="sector_funding_total" class="bigNumber"></h4>
                     <h2 id="sector_funding_description" style="display: none"></h2>
@@ -320,10 +319,8 @@ HIDING "MORE DATA" LINK<//-->
     
     <br class="clear" />
     
-    <div id="footnote">Active financed activities as of December 14, 2011.
-    </div>
-    
     <div id="network-breadcrumb"><div class="limiter clear-block">
+<!--LEAVE OUT "YOU ARE HERE" TEXT AND LINKS" 
         <span class="breadcrumb-link">
             <a class="breadcrumb-link-home">You are here</a>
         </span>
@@ -337,6 +334,7 @@ HIDING "MORE DATA" LINK<//-->
         <a class="breadcrumb-link " href="./extractives">Extractive Industries</a>
         <a class="breadcrumb-link " href="./extractives/afr">Extractives in Africa</a>
         <a class="breadcrumb-link breadcrumb-last" href="./extractives/afr/ghana">Ghana</a>
+//-->
         
     </div>
     </div>
