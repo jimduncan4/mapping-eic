@@ -115,21 +115,6 @@ if(typeof(F1)=='undefined') {F1 = {};}
         this.options = options;
     };
  
-    F1.WorldBank.indicators = {
-        "Infant Mortality": {source: "finder:", title:"Infant Mortality Rate", subtitle: "Per 1,000 live births, in $[aimagnameen] Aimag", styles: { type: "CHOROPLETH", stroke: {color: 0x222222}, fill: { colors: [0xFEE5D9, 0xFCAE91, 0xFB6A4A, 0xDE2D26, 0xA50F15], categories: 5, classificationNumClasses: 5, classificationType: "QUANTILE", opacity: 0.75, selectedAttribute: "infantmort"}}, infosubtitle: null, table: null, description: "Infant deaths per 1,000 live births in the 2nd quarter of 2012. Infant mortality rate is the number of infant deaths (deaths before reaching one year of age) per 1,000 for the ten year period preceding the survey.\nSource: <a href='http://www.nso.mn/v3/index2.php?page=free_access' target='_new'>National Statistical Office of Mongolia</a>."},    
-        "Population": {source: "finder:", title:"Population", subtitle: "Number of People", styles: { type: "CHOROPLETH",stroke: {color: 0x222222}, fill: { colors: [0xEFF3FF, 0xBDD7E7, 0x6BAED6, 0x3182BD, 0x08519C], categories: 5, classificationNumClasses: 5, classificationType: "QUANTILE", opacity: 0.75, selectedAttribute: "population"}}, infosubtitle: "The number of people in $[aimagnameen] Aimag", table: null, description: "The number of people in each aimag in 2010.\nSource: <a href='http://www.nso.mn/v3/index2.php?page=free_access' target='_new'>National Statistical Office of Mongolia</a>."},
-        "Unemployment": {source: "finder:", title:"Unemployment", subtitle: "", styles: { type: "CHOROPLETH", stroke: {color: 0x222222}, fill: { colors: [0xFEE5D9, 0xFCAE91, 0xFB6A4A, 0xDE2D26, 0xA50F15], categories: 5, classificationNumClasses: 5, classificationType: "QUANTILE", opacity: 0.75, selectedAttribute: "unemployment"}}, infosubtitle: "The number of people in $[aimagnameen] Aimag not employed in the first half of 2012", table: null, description: "The number of people in each aimag not employed in the first half of 2012. Source: <a href='http://www.nso.mn/v3/index2.php?page=free_access' target='_new'>National Statistical Office of Mongolia</a>."},    
-        "Number of Physicians": {source: "finder:", title:"Number of Physicians", subtitle: "", styles: { type: "CHOROPLETH", stroke: {color: 0x222222}, fill: { colors: [15456706, 13744031, 10782317, 8151635, 4863020], categories: 5, classificationNumClasses: 5, classificationType: "QUANTILE", opacity: 0.75, selectedAttribute: "physnum"}}, infosubtitle: "The number of physicians in $[aimagnameen] Aimag", table: null, description: "The number of physicians in each aimag in 2010. \nSource: <a href='http://www.nso.mn/v3/index2.php?page=free_access' target='_new'>National Statistical Office of Mongolia</a>."},	
-        "Number of Households": {source: "finder:", title:"Number of Households (thousands)", subtitle: "", styles: { type: "CHOROPLETH", stroke: {color: 0x222222}, fill: { colors: [5313667, 8608676, 12619965, 14924738, 16573399], categories: 5, classificationNumClasses: 5, classificationType: "QUANTILE", opacity: 0.75, selectedAttribute: "housenum"}}, infosubtitle: "The number of households in $[aimagnameen] Aimag, in thousands", table: null, description: "The number of households in each aimag in 2010. \nSource: <a href='http://www.nso.mn/v3/index2.php?page=free_access' target='_new'>National Statistical Office of Mongolia</a>."},	
-        "Soum Boundaries":{source: "finder:", title:"$[soumnameen] Soum, $[aimagnameen] Aimag", selectedAttribute:"soumnameen",subtitle: "",styles: {type: "PRIMITIVE",stroke: {color: 0x222222, weight: 1, opacity: 0.75},fill:{color:[0xCCCC66],opacity: 0.75}},infosubtitle: "$[soumnameen] Soum", table: null, description: "Soum boundaries provided by the <a href='http://www.icc.mn/' target='_new'>Environmental Information Center</a>."},
-        "Special Protected Areas":{source: "finder",title:"Special Protected Areas", selectedAttribute:"placenamee",subtitle:"",styles:{}},
-        "Forest": {source: "finder", title: "Forested areas", selectedAttribute:"", subtitle:"",styles:{}},
-        "Licenses":{source: "finder:", title:"Licenses", selectedAttribute:"licenses",styles: {}},
-        "EITI":{source: "finder:", title:"EITI", selectedAttribute:"eiti",styles: {}},
-        "Donations":{source: "finder:", title:"Donations", selectedAttribute:"eiti",styles: {}},
-        "Company":{source: "finder:", title:"Company", selectedAttribute:"company",styles: {}},
-    };
- 
     F1.WorldBank.prototype = {
     
     init: function(map_id, country, region, country_attrs, embed, callback) 
@@ -748,7 +733,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
             else {
                 jq('#layercontrol_indicators').html(indicator);
                 
-                var style = F1.WorldBank.indicators[indicator].styles;
+                var style = F1.WorldBank.extractives[indicator].styles;
                 if (indicator!="Soum Boundaries") {
                     style.source = self.stylelayers[indicator].source;
                     if (self.current_indicator="Soum Boundaries"){
@@ -760,19 +745,19 @@ if(typeof(F1)=='undefined') {F1 = {};}
                     self.map.setLayerStyle(self.stylelayers[indicator].guid, style);
                 
                 var infotabs = [];
-                if(F1.WorldBank.indicators[indicator].table !== undefined && F1.WorldBank.indicators[indicator].table !== null)
-                    infotabs.push({title: "Data", type:"table", value:F1.WorldBank.indicators[indicator].table})
-                    if(F1.WorldBank.indicators[indicator].description !== undefined && F1.WorldBank.indicators[indicator].description !== null)
-                        infotabs.push({title: "About", type: "text", value:F1.WorldBank.indicators[indicator].description})
-                        var infosub = F1.WorldBank.indicators[indicator].subtitle;
-                if(F1.WorldBank.indicators[indicator].infosubtitle !== undefined && F1.WorldBank.indicators[indicator].infosubtitle !== null)
-                    infosub = F1.WorldBank.indicators[indicator].infosubtitle
+                if(F1.WorldBank.extractives[indicator].table !== undefined && F1.WorldBank.extractives[indicator].table !== null)
+                    infotabs.push({title: "Data", type:"table", value:F1.WorldBank.extractives[indicator].table})
+                    if(F1.WorldBank.extractives[indicator].description !== undefined && F1.WorldBank.extractives[indicator].description !== null)
+                        infotabs.push({title: "About", type: "text", value:F1.WorldBank.extractives[indicator].description})
+                        var infosub = F1.WorldBank.extractives[indicator].subtitle;
+                if(F1.WorldBank.extractives[indicator].infosubtitle !== undefined && F1.WorldBank.extractives[indicator].infosubtitle !== null)
+                    infosub = F1.WorldBank.extractives[indicator].infosubtitle
                     
                   try {
-                        self.map.setLayerInfoWindow(self.stylelayers[indicator].guid, {title: indicator + ": $["+ F1.WorldBank.indicators[indicator].styles.fill.selectedAttribute +"]", subtitle: infosub, tabs:infotabs});
+                        self.map.setLayerInfoWindow(self.stylelayers[indicator].guid, {title: indicator + ": $["+ F1.WorldBank.extractives[indicator].styles.fill.selectedAttribute +"]", subtitle: infosub, tabs:infotabs});
                         
-                        self.map.setLayerTitle(self.stylelayers[indicator].guid, F1.WorldBank.indicators[indicator].title);
-                        self.map.setLayerSubTitle(self.stylelayers[indicator].guid, F1.WorldBank.indicators[indicator].subtitle);
+                        self.map.setLayerTitle(self.stylelayers[indicator].guid, F1.WorldBank.extractives[indicator].title);
+                        self.map.setLayerSubTitle(self.stylelayers[indicator].guid, F1.WorldBank.extractives[indicator].subtitle);
                         self.map.showLayer(self.stylelayers[indicator].guid, true);
                         
                         // China Indicators for Poverty
@@ -1253,7 +1238,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
                     if(index !== undefined && index !== null){
                     self.stylelayers[findlayers[index]] = {guid: possibleLayers[layer].guid, order: possibleLayers[layer].order, source: possibleLayers[layer].source, sharedLayer: false};
                     if(Object.include(["Infant Mortality", "Population", "Number of Physicians", "Number of Households", "Unemployment"], possibleLayers[layer].title)) {
-                    F1.WorldBank.indicators[possibleLayers[layer].title].styles.fill.selectedAttribute = possibleLayers[layer].styles.fill.selectedAttribute;
+                    F1.WorldBank.extractives[possibleLayers[layer].title].styles.fill.selectedAttribute = possibleLayers[layer].styles.fill.selectedAttribute;
                     }
                     findlayers.splice(index,1);
                     }	
@@ -1273,11 +1258,10 @@ if(typeof(F1)=='undefined') {F1 = {};}
                 "EITI": "csv",
                 "Donations" : "csv",
                 "Company": "csv",
-                "Company": "shapefile",
                 "Indicators": "csv",
-                "Indicators": "shapefile",
                 "Soum Boundaries": "shapefile",
-                "Special Protected Areas":"shapefile"
+                "Special Protected Areas":"shapefile",
+                "Forest":"shapefile"
                 };
             
             jq("#data_links").html("")
