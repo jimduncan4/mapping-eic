@@ -445,6 +445,8 @@ if(typeof(F1)=='undefined') {F1 = {};}
                 else {
                     jq(classname).removeClass('active').addClass('inactive');
                 }
+ visibility =layervisible[self.stylelayers[layer].order].visible
+ 
                 if(layervisible[self.stylelayers[layer].order].visible){
                     self.showVisibleMines(layer, offlayer);
                 }
