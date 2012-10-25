@@ -1098,14 +1098,13 @@ if(typeof(F1)=='undefined') {F1 = {};}
                     "description":{"name": "Payment type","original_name": "payment_type"},
                     "sort":{"name": "Total payment","original_name": "total"} } };
             
-            var colors = ["#ffcc00", "#ff8e3a", "#7a7efe"]
+            var colors = ["#B84C02", "#FE9929", "#FEE281", "#D0D1E6", "#909FC2", "#44637B"]
             opts["chart"] = {legend: labels, colors: colors};
             opts["colors"] = colors;
             opts["href"] = links;
             F1.Visualizer.charts.pie(190, 380, pie_options, "chart-left-pie-chart", opts);
             
-            jq('#sector_funding_total').hide()
-            jq("#sector_funding_total").html(total + " Ghana Cedis of revenue")
+            jq("#sector_funding_total").html(Math.round(total/100)/10 + " million ₮ in total")
             
             var self = this;
             
