@@ -37,7 +37,7 @@ table_templates = {
     th : '<th id="th-header-<%= id %>"><%= header %></th>',
     td : '<td><%= cell %></td>',
     project: '<tr id="row_<%= id %>" class="<%= even %> rowsector_<%= sector_code %>" data-project-name="<%= project_name %>" data-project-id="<%= id %>"><td><%= project_name %></td><td><%= id %></td><td>$<%= totalamt %> million</td><td><%= mjsector1 %></td><td><%= boardapprovaldate %></td><td><%= prodlinetext %></td></tr>',
-    company: '<tr id="row_<%= id %>" class="<%= even %>" data-project-id="<%= company_name %>"><td><%= company_name %></a></td><td><%= registration_number %></td><td><%= invest_agree %></td><td><%= locationen %></td><td><%= locationmo %></td><td><%= centralpay %></td><td><%= localpay %></td><td><%= totalpay %></td></tr>'
+    company: '<tr id="row_<%= id %>" class="<%= even %>" data-project-id="<%= company_name %>"><td><%= company_name %></a></td><td><%= registration_number %></td>><td><%= locationen %><%= locationmo %></td><td><%= invest_agree %></td<td><%= centralpay %></td><td><%= localpay %></td><td><%= totalpay %></td></tr>'
 };
 
 Textify = {
