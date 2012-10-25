@@ -1124,7 +1124,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
             jq("#map-table").append(table);
             
             jq("#project-info tr").live("click", function() {
-                                        self.highlightCompany("company_name", jq(this).attr("data-project-id"));
+                                        self.highlightCompany("comp_num", jq(this).attr("data-project-id"));
                                         });
             },
         
