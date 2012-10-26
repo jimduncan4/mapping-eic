@@ -119,7 +119,7 @@ MOVING WB LOGO -->
                             <!-- <li><a href="#" id="">Embed the Map</a></li> -->
                         </ul>
                     </li>
-                    <li class="download"><a href="#" id="print_link" title="print"><span></span>PRINT</a>
+                    <li class="download"><a href="#" onclick="('#wb_map').printElement({printMode:'popup'})"id="print_link" title="print"><span></span>PRINT</a>
                 </ul>
             </div> <!--#share//-->
             <div id="share_window" style="display: none;">
@@ -372,7 +372,7 @@ HIDING "MORE DATA" LINK<//-->
             wb.init("204736",  "Mongolia", "Mining", {projects_count: '39', locations_count: '14', projects: projects,companies:companies, locations_layer: 0, indicators: ['Population','Unemployment','Infant Mortality','Number of Physicians','Number of Households'], layers: null, page_type: "country", thematic_area: "extractives_controls"}, false);
         }
         </script>
-    <script type="text/javascript">
+<!--    <script type="text/javascript">
         function printelem(){
             $(document).ready(function(){
                               $("#print_link").click(function(){
@@ -380,6 +380,7 @@ HIDING "MORE DATA" LINK<//-->
                                                      })});
         }
         </script>
+ <//-->
     
     </div><!--#container//-->
 </body>
