@@ -386,5 +386,14 @@ HIDING "MORE DATA" LINK<//-->
         </script>
     <script type="text/javascript" src="http://github.com/erikzaadi/jQueryPlugins/raw/master/jQuery.printElement/jquery.printElement.min.js">
         </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+                          $("#print_link").click(function(){
+                                                 printElem({printMode:'popup'});
+                                                 });
+                          });
+        function printElem(options){
+            $('#wb_map').printElement(options);
+        }
 </body>
 </html>

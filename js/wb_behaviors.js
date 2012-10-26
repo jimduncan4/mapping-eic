@@ -24,10 +24,10 @@ function initializeEvents() {
         return false;
     });
     
-    jq("#print_link").click(function(){
-                            $('#wb_map').printElement({printMode:'popup'})
-                            return false;
-                            });
+//    jq("#print_link").click(function(){
+//                            $('#wb_map').printElement({printMode:'popup'})
+//                            return false;
+//                            });
     
     jq("#locations_list .inactive").click(function () {
         return false;
