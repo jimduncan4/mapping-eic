@@ -1,4 +1,4 @@
-var proxy_host = "http://geocommons.com";    
+var proxy_host = "http://maps.worldbank.org";
 var project_attributes = ["id","project_name","totalamt","prodlinetext","grantamt","mjsector1","boardapprovaldate","majorsector_percent"];
 var major_sector_name = "mjsector 1";
 var barchart;
@@ -1269,7 +1269,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
                     else
                     format = download
                     if(self.stylelayers[index] !== undefined)
-                    jq("#data_links").append("<li><a href='http://geocommons.com/overlays/" + self.stylelayers[index].source.replace('finder:','') +"."+format+"'>"+index+" ("+download+")</a></li>");
+                    jq("#data_links").append("<li><a href='http://maps.worldbank.org/datasets/" + self.stylelayers[index].source.replace('finder:','') +"."+format+"'>"+index+" ("+download+")</a></li>");
                     
                     })
         
