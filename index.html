@@ -97,6 +97,7 @@ MOVING WB LOGO -->
         </div><!--#header//-->
         <div id="main-wrap" style="">
             <div id="share">
+                <input type="button" value="Default" id="simplePrint" />
                 <ul class="dropmenu map-options">
                     <li class="about">
                         <span></span><a href="#" id="about_link" title="About">About</a>
@@ -382,11 +383,13 @@ HIDING "MORE DATA" LINK<//-->
  <//-->
     
     </div><!--#container//-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+        </script>
     <script type="text/javascript" src="http://github.com/erikzaadi/jQueryPlugins/raw/master/jQuery.printElement/jquery.printElement.min.js">
         </script>
     <script type="text/javascript">
         $(document).ready(function(){
-                          $("#print_link").click(function(){
+                          $("#simplePrint").click(function(){
                                                  printElem({printMode:'popup'});
                                                  });
                           });
