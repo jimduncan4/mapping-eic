@@ -25,7 +25,7 @@ function initializeEvents() {
     });
     
     jq("#print_link").click(function(){
-                            ("#wb_map").printElement({printMode:'popup'})
+                            $('#wb_map').printElement({printMode:'popup'})
                             return false;
                             });
     
