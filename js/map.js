@@ -1064,7 +1064,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
     minesPieChart: function(data)
         {
             var opts = {};
-            var labels = ["Corporate income tax","Value added tax","License fees","Windfall tax","Production sharing","Other payments"];
+            var labels = ["\Corporate income tax","/\Value added tax","License fees","Windfall tax","Production sharing","Other payments"];
         payment_type = ["corp_inc_tax","vat","license_fee","windfall","psa_payment","other_payment"]
         payment_total={}
  
