@@ -1112,7 +1112,7 @@ if(typeof(F1)=='undefined') {F1 = {};}
             var self = this;
             
             var table = '<table id="project-info"><thead><tr>';
-            jq.each(["\Company name", "/\Registration number","Location (if given)", "Investment agreement", "2010 National payments", " 2010 Local payments", "2010 Total payments"], function(index,header) {
+            jq.each(["\Company name/\/", "/\Registration number/\","Location (if given)", "Investment agreement", "2010 National payments", " 2010 Local payments", "2010 Total payments"], function(index,header) {
                     table += tmpl(table_templates.th, {id: index,header: header});
                     });
             table += "</tr></thead><tbody>"
